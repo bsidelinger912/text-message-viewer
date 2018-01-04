@@ -1,0 +1,44 @@
+.text-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.text-item {
+  margin: 20px 0;
+}
+
+.clear {
+  clear: both;
+}
+
+.name {
+  font-size: 1.1em;
+  margin: 0 0 5px;
+}
+
+.date {
+  color: #777;
+}
+
+.text-item .ben {
+  float: right;
+  max-width: 300px;
+}
+
+.text-item .brooke {
+  float: left;
+  max-width: 300px;
+}
+
+.body {
+  border: 1px solid black;
+  padding: 10px;
+  background: #ddd;
+}
+
+.text-item .ben .body {
+}
+
+.text-item .brooke .body {
+
+}
