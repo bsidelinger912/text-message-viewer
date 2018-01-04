@@ -1,0 +1,32 @@
+.textItem {
+  margin: 20px 0;
+
+  .sent {
+    float: right;
+    max-width: 300px;
+  }
+
+  .received {
+    float: left;
+    max-width: 300px;
+  }
+}
+
+.clear {
+  clear: both;
+}
+
+.name {
+  font-size: 1.1em;
+  margin: 0 0 5px;
+}
+
+.date {
+  color: #777;
+}
+
+.body {
+  border: 1px solid black;
+  padding: 10px;
+  background: #ddd;
+}
