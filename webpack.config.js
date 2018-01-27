@@ -22,6 +22,24 @@ module.exports = {
         loader: 'babel-loader',
       },
       {
+        test: /\.global\.scss$/,
+        // include: __dirname,
+        use: [
+          {
+            loader: 'style-loader',
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              modules: false,
+            },
+          },
+          {
+            loader: 'sass-loader',
+          },
+        ],
+      },
+      {
         test: /\.scss$/,
         use: [
           {

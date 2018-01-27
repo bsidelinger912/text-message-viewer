@@ -1,13 +1,11 @@
 {
-  "name": "json-viewer",
-  "version": "1.0.0",
+  "name": "text-message-viewer",
+  "version": "0.1.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "dev": "webpack-dev-server"
+    "start": "node ./node_modules/.bin/webpack-dev-server"
   },
-  "author": "",
+  "author": "Ben Sidelinger",
   "license": "ISC",
   "dependencies": {
     "express": "^4.15.2",

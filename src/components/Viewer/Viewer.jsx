@@ -1,10 +1,12 @@
+/* eslint-disable react/no-array-index-key */
+
 import React from 'react';
 
 import styles from './viewer.scss';
 
 const Viewer = ({ textData, clearData }) => {
-  const rows = textData.map(row => (
-    <div className={styles.textItem}>
+  const rows = textData.map((row, i) => (
+    <div key={i} className={styles.textItem}>
       <div className={row.sentReceived === 'sent' ? styles.sent : styles.received}>
         <div className={styles.name}>{row.sender}</div>
         <span className={styles.date}>{row.date}</span>
