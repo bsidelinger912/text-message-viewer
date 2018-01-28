@@ -1,13 +1,13 @@
 import React from 'react';
 import converter from 'xml-js';
 
-import Uploader from './components/Uploader';
+import Uploader from './components/Uploader/Uploader';
 import Viewer from './components/Viewer/Viewer';
 import ParserError from './components/ParserError/ParserError';
-import SupportedFileTypes from './components/SupportedFileTypes/SupportedFileTypes';
 
 import normalizeData from './utils/normalizeData';
 
+import './base.scss';
 import styles from './app.scss';
 
 const PARSER_ERROR = 'errors.parserError';
@@ -53,24 +53,28 @@ export default class App extends React.Component {
     }
   }
 
-  clearData(event, errorType) {
+  clearData(e, errorType) {
+    e.preventDefault();
     this.setState({ errorType, textData: undefined });
-    event.target.value = null; // eslint-disable-line no-param-reassign
+
+    e.target.value = null; // eslint-disable-line no-param-reassign
   }
 
   render() {
     const { textData, errorType } = this.state;
 
-    const titleText = textData ? 'Here\'s your texts' : 'Hello there, to get started, upload a file';
+    const subHeadingText = textData ? 'View and save your texts.' : 'To get started, upload an SMS backup file.';
     const error = errorType === PARSER_ERROR ? <ParserError /> : null;
-    const view = textData ? <Viewer textData={textData} clearData={this.clearData} /> : <Uploader onFileChange={this.onFileChange} />;
+    const view = textData
+      ? <Viewer textData={textData} clearData={this.clearData} onFileChange={this.onFileChange} />
+      : <Uploader onFileChange={this.onFileChange} />;
 
     return (
       <div className={styles.wrapper}>
-        <h1>{titleText}</h1>
+        <h1>Welcome to Text Message Viewer</h1>
+        <h4 className={styles.subHeading}>{subHeadingText}</h4>
         {error}
         {view}
-        <SupportedFileTypes />
       </div>
     );
   }

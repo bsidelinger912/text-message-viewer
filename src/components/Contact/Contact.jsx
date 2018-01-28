@@ -3,6 +3,9 @@
  * @description
  */
 
+
+/* eslint-disable jsx-a11y/no-static-element-interactions, jsx-a11y/click-events-have-key-events, jsx-a11y/anchor-is-valid */
+
 import React from 'react';
 // import PropTypes from 'prop-types';
 
@@ -23,7 +26,8 @@ class Contact extends React.Component {
     this.showModal = this.showModal.bind(this);
   }
 
-  showModal() {
+  showModal(e) {
+    e.preventDefault();
     this.setState({ modalVisible: true });
   }
 
@@ -32,7 +36,12 @@ class Contact extends React.Component {
 
     return (
       <div className={styles.main}>
-        <button className={styles.contactLink} onClick={this.showModal}>Contact</button>
+        <a
+          className={styles.contactLink}
+          onClick={this.showModal}
+        >
+          Contact
+        </a>
         <Modal visible={modalVisible}>
           <div>Email ben.sidelinger [at] gmail.com to request new file types and other features.</div>
         </Modal>

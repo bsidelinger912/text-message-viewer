@@ -1,3 +1,5 @@
+@import "../../variables";
+
 .textItem {
   margin: 20px 0;
 
@@ -22,11 +24,13 @@
 }
 
 .date {
-  color: #777;
+  color: $dimGrey;
+  margin: 0 0 5px;
 }
 
 .body {
-  border: 1px solid black;
+  border: 1px solid $darkestGrey;
   padding: 10px;
-  background: #ddd;
+  background: $lightGrey;
+  border-radius: 3px;
 }
