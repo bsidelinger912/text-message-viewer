@@ -19,7 +19,11 @@ const SupportedFileTypes = () => (
     <h4>Supported SMS backup tools:</h4>
     <ul>
       <li>
-        <a href="https://play.google.com/store/apps/details?id=com.riteshsahu.SMSBackupRestore&hl=en">
+        <a
+          target="_blank"
+          href="https://play.google.com/store/apps/details?id=com.riteshsahu.SMSBackupRestore&hl=en"
+          rel="noopener noreferrer"
+        >
           SMS backup and restore (Android)
         </a>
       </li>

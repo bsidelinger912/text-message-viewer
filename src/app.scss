@@ -1,7 +1,14 @@
+@import "./variables";
+
 .wrapper {
   width: 100%;
   max-width: 800px;
-  margin: 0 auto;
+  margin: 10px auto 0;
+  padding: 10px;
+  border: 1px solid $dimGrey;
+  border-radius: 3px;
+  background: rgba($white, .85);
+  box-sizing: border-box;
 }
 
 .subHeading {

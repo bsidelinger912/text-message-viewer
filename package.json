@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "description": "",
   "scripts": {
-    "start": "node ./node_modules/.bin/webpack-dev-server"
+    "start": "node ./node_modules/.bin/webpack-dev-server",
+    "build": "node ./node_modules/.bin/webpack -p"
   },
   "author": "Ben Sidelinger",
   "license": "ISC",

@@ -18,3 +18,9 @@
     color: $linkHoverBlue;
   }
 }
+
+.content {
+  min-height: 150px;
+  display: flex;
+  align-items: center;
+}

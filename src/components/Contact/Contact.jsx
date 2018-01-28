@@ -43,7 +43,7 @@ class Contact extends React.Component {
           Contact
         </a>
         <Modal visible={modalVisible}>
-          <div>Email ben.sidelinger [at] gmail.com to request new file types and other features.</div>
+          <div className={styles.content}>Email ben.sidelinger [at] gmail.com to request new file types and other features.</div>
         </Modal>
       </div>
     );
