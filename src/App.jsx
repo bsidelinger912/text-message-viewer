@@ -71,7 +71,7 @@ export default class App extends React.Component {
 
     return (
       <div className={styles.wrapper}>
-        <h1>Welcome to Text Message Viewer</h1>
+        <h1 className={styles.heading}>Welcome to Text Message Viewer</h1>
         <h4 className={styles.subHeading}>{subHeadingText}</h4>
         {error}
         {view}

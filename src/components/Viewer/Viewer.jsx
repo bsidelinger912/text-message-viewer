@@ -33,8 +33,10 @@ const Viewer = ({ textData, onFileChange, clearData }) => {
 
   return (
     <div>
-      <PDFInstructions />
-      <UploadForm onFileChange={onFileChange} clearData={clearData} buttonText="Choose a Different File" />
+      <div className={styles.pageUpper}>
+        <PDFInstructions />
+        <UploadForm onFileChange={onFileChange} clearData={clearData} buttonText="Choose a Different File" />
+      </div>
       {rows}
     </div>
   );

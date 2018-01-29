@@ -1,5 +1,11 @@
 @import "../../variables";
 
+.pageUpper {
+  @media print {
+    display: none;
+  }
+}
+
 .textItem {
   margin: 20px 0;
 

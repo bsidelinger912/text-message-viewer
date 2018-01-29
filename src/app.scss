@@ -11,6 +11,13 @@
   box-sizing: border-box;
 }
 
+.heading,
+.subHeading {
+  @media print {
+    display:none;
+  }
+}
+
 .subHeading {
   margin: 20px 0;
 }
