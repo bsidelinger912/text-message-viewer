@@ -4,6 +4,7 @@ import converter from 'xml-js';
 import Uploader from './components/Uploader/Uploader';
 import Viewer from './components/Viewer/Viewer';
 import ParserError from './components/ParserError/ParserError';
+import { GET_STARTED, VIEW_AND_SAVE, PRIVACY_INFO } from './copy';
 
 import normalizeData from './utils/normalizeData';
 
@@ -63,7 +64,8 @@ export default class App extends React.Component {
   render() {
     const { textData, errorType } = this.state;
 
-    const subHeadingText = textData ? 'View and save your texts.' : 'To get started, upload an SMS backup file.';
+    const subHeadingText = textData ? GET_STARTED : GET_STARTED;
+    const privacyInfo = textData ? null : <p>{PRIVACY_INFO}</p>;
     const error = errorType === PARSER_ERROR ? <ParserError /> : null;
     const view = textData
       ? <Viewer textData={textData} clearData={this.clearData} onFileChange={this.onFileChange} />
@@ -73,6 +75,7 @@ export default class App extends React.Component {
       <div className={styles.wrapper}>
         <h1 className={styles.heading}>Welcome to Text Message Viewer</h1>
         <h4 className={styles.subHeading}>{subHeadingText}</h4>
+        {privacyInfo}
         {error}
         {view}
       </div>
