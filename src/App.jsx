@@ -21,6 +21,7 @@ export default class App extends React.Component {
 
     this.onFileChange = this.onFileChange.bind(this);
     this.clearData = this.clearData.bind(this);
+    this.setName = this.setName.bind(this);
   }
 
   onFileChange(e) {
@@ -54,6 +55,10 @@ export default class App extends React.Component {
     }
   }
 
+  setName(name) {
+    this.setState({ name });
+  }
+
   clearData(e, errorType) {
     e.preventDefault();
     this.setState({ errorType, textData: undefined });
@@ -62,20 +67,18 @@ export default class App extends React.Component {
   }
 
   render() {
-    const { textData, errorType } = this.state;
+    const { textData, errorType, name } = this.state;
 
-    const subHeadingText = textData ? GET_STARTED : GET_STARTED;
-    const privacyInfo = textData ? null : <p>{PRIVACY_INFO}</p>;
+    // const subHeadingText = textData ? GET_STARTED : GET_STARTED;
+    // const privacyInfo = textData ? null : <p>{PRIVACY_INFO}</p>;
     const error = errorType === PARSER_ERROR ? <ParserError /> : null;
     const view = textData
-      ? <Viewer textData={textData} clearData={this.clearData} onFileChange={this.onFileChange} />
+      ? <Viewer textData={textData} clearData={this.clearData} onFileChange={this.onFileChange} name={name} setName={this.setName} />
       : <Uploader onFileChange={this.onFileChange} />;
 
     return (
       <div className={styles.wrapper}>
         <h1 className={styles.heading}>Welcome to Text Message Viewer</h1>
-        <h4 className={styles.subHeading}>{subHeadingText}</h4>
-        {privacyInfo}
         {error}
         {view}
       </div>

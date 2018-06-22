@@ -19,28 +19,53 @@ const propTypes = {
   onFileChange: PropTypes.func.isRequired,
 };
 
-const Viewer = ({ textData, onFileChange, clearData }) => {
-  const rows = textData.map((row, i) => (
-    <div key={i} className={styles.textItem}>
-      <div className={row.sentReceived === 'sent' ? styles.sent : styles.received}>
-        <div className={styles.name}>{row.sender}</div>
-        <div className={styles.date}>{row.date}</div>
-        <div className={styles.body}>{row.body}</div>
-      </div>
-      <div className={styles.clear} />
-    </div>
-  ));
+class Viewer extends React.Component {
+  constructor(props) {
+    super(props);
 
-  return (
-    <div>
-      <div className={styles.pageUpper}>
-        <PDFInstructions />
-        <UploadForm onFileChange={onFileChange} clearData={clearData} buttonText="Choose a Different File" />
+    this.nameFormSubmit = this.nameFormSubmit.bind(this);
+  }
+
+  nameFormSubmit(e) {
+    e.preventDefault();
+    this.props.setName(this.nameInput.value);
+  }
+
+  render() {
+    const {
+      textData,
+      onFileChange,
+      clearData,
+      name,
+    } = this.props;
+
+    const rows = textData.map((row, i) => (
+      <div key={i} className={styles.textItem}>
+        <div className={row.sentReceived === 'sent' ? styles.sent : styles.received}>
+          <div className={styles.name}>{row.sentReceived === 'sent' && name ? name : row.sender}</div>
+          <div className={styles.date}>{row.date}</div>
+          <div className={styles.body}>{row.body}</div>
+        </div>
+        <div className={styles.clear} />
       </div>
-      {rows}
-    </div>
-  );
-};
+    ));
+
+    return (
+      <div>
+        <div className={styles.pageUpper}>
+          <PDFInstructions />
+          <UploadForm onFileChange={onFileChange} clearData={clearData} buttonText="Choose a Different File" />
+        </div>
+        <form className={styles.nameForm} onSubmit={this.nameFormSubmit}>
+          <label htmlFor="name">Enter your name</label>
+          <input id="name" name="name" ref={(input) => { this.nameInput = input; }} />
+          <button type="submit">Save</button>
+        </form>
+        {rows}
+      </div>
+    );
+  }
+}
 
 Viewer.propTypes = propTypes;
 

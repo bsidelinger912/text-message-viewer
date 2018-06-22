@@ -6,6 +6,30 @@
   }
 }
 
+.nameForm {
+  @media print {
+    display: none;
+  }
+
+  display: flex;
+  align-items: center;
+  border-top: 1px solid $darkGrey;
+  border-bottom: 1px solid $darkGrey;
+  padding: 15px;
+  margin: 25px 0;
+
+  label,
+  input {
+    margin-right: 10px;
+  }
+
+  button {
+    padding: 5px;
+    height: auto;
+    line-height: 11px;
+  }
+}
+
 .textItem {
   margin: 20px 0;
 

@@ -11,12 +11,7 @@ import styles from './supportedFileTypes.scss';
 
 const SupportedFileTypes = () => (
   <div className={styles.main}>
-    <p>
-      You&lsquo;ll need to transfer your text thread from your phone to an uploadable file with an SMS backup tool.
-      These tools will back up your text threads to cloud storage and other locations.
-    </p>
-
-    <h4>Supported SMS backup tools:</h4>
+    <strong>Supported SMS backup Apps:</strong>
     <ul>
       <li>
         <a
@@ -28,7 +23,7 @@ const SupportedFileTypes = () => (
         </a>
       </li>
     </ul>
-    <Contact /> us to request more formats.
+    <Contact /> us to request support for more Apps.
   </div>
 );
 
